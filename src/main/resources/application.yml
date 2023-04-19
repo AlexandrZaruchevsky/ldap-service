@@ -1,0 +1,21 @@
+server:
+  port: ${SERVER_PORT:8081}
+spring:
+  main:
+    banner-mode: off
+  ldap:
+    base: ${LDAP_BASE:DC=0039,DC=PFR,DC=RU}
+    urls: ${LDAP_URLS:ldap://sw03900008002dc:389}
+    username: ${LDAP_USERNAME:username}
+    password: ${LDAP_PASSWORD:password}
+    prefix-user: ${LDAP_PREFIX_USER:039*}
+    interval: 15
+logging:
+  charset:
+    file: UTF-8
+  file:
+    path: ${java.io.tmpdir}
+    name: app.log
+  logback:
+    rollingpolicy:
+      total-size-cap: 10485760
