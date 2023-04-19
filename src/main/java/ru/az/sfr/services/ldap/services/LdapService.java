@@ -52,18 +52,18 @@ public class LdapService {
     @Scheduled(fixedRateString = "${spring.ldap.interval}", timeUnit = TimeUnit.MINUTES)
     private void getUserListFromLdapServer() {
         log.info("Load users from AD");
-//        AndFilter filter = new AndFilter();
-//        filter.and(new EqualsFilter("objectclass", "person"));
-//        filter.and(new LikeFilter("sAMAccountName", prefix));
-//        long t0 = System.currentTimeMillis();
-//        List<UserAD> usersFromLdap = ldapTemplate.search(
-//                "", filter.encode(),
-//                new UserADMapper());
-//        log.info("Users loaded. Time execution - {}. Amount - {}", System.currentTimeMillis() - t0, usersFromLdap.size());
-//        synchronized (users) {
-//            users.clear();
-//            users.addAll(usersFromLdap);
-//        }
+        AndFilter filter = new AndFilter();
+        filter.and(new EqualsFilter("objectclass", "person"));
+        filter.and(new LikeFilter("sAMAccountName", prefix));
+        long t0 = System.currentTimeMillis();
+        List<UserAD> usersFromLdap = ldapTemplate.search(
+                "", filter.encode(),
+                new UserADMapper());
+        log.info("Users loaded. Time execution - {}. Amount - {}", System.currentTimeMillis() - t0, usersFromLdap.size());
+        synchronized (users) {
+            users.clear();
+            users.addAll(usersFromLdap);
+        }
     }
 
 }
