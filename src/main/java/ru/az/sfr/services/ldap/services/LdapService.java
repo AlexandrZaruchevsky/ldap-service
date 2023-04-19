@@ -49,7 +49,7 @@ public class LdapService {
                 .collect(Collectors.toList());
     }
 
-    @Scheduled(fixedRateString = "${spring.ldap.interval}", timeUnit = TimeUnit.MINUTES)
+    @Scheduled(fixedRateString = "${spring.task.ldap.interval}", timeUnit = TimeUnit.MINUTES)
     private void getUserListFromLdapServer() {
         log.info("Load users from AD");
         AndFilter filter = new AndFilter();

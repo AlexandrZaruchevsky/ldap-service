@@ -9,7 +9,9 @@ spring:
     username: ${LDAP_USERNAME:username}
     password: ${LDAP_PASSWORD:password}
     prefix-user: ${LDAP_PREFIX_USER:039*}
-    interval: 15
+  task:
+    ldap:
+      interval: ${LDAP_FIXED_RATE_MINUTES:15}
 logging:
   charset:
     file: UTF-8
