@@ -1,5 +1,6 @@
 .idea
 target
 app.log
+app*.*
 docker/ldap-service.jar
 ldap.iml

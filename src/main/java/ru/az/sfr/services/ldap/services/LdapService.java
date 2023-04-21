@@ -66,4 +66,11 @@ public class LdapService {
         }
     }
 
+    public boolean ldapAuth(String username, String password) {
+        AndFilter filter = new AndFilter();
+        filter.and(new EqualsFilter("objectclass", "person"));
+        filter.and(new EqualsFilter("sAMAccountName", username));
+        return ldapTemplate.authenticate("", filter.encode(), password);
+    }
+
 }
